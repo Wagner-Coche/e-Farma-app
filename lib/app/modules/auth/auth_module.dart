@@ -1,3 +1,4 @@
+import 'package:e_farma/app/modules/auth/login/screens/loading_login_screen.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'login/screens/login_screen.dart';
@@ -17,6 +18,7 @@ class AuthModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ChildRoute(Modular.initialRoute, child: (_, args) => const LoginScreen()),
+    ChildRoute("/loading_login", child: (_, args) => LoadingLoginScreen(user: args.data)),
     ChildRoute("/step_register", child: (_, args) => const StepRegisterScreen()),
     ChildRoute("/register", child: (_, args) => const RegisterScreen()),
     ChildRoute("/otp", child: (_, args) => const OTPScreen()),

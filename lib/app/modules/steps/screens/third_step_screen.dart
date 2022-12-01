@@ -29,10 +29,7 @@ class ThirdStepScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                StepTextButtonWidget(
-                  text: "Pular",
-                  onTap: () => controller.goToFourthStepScreen()
-                ),
+                const StepTextButtonWidget(text: "Pular"),
                 const ImageCenterThirdStepComponent(),
                 ButtonNextStepWidget(
                   onPressed: () => controller.goToFourthStepScreen()

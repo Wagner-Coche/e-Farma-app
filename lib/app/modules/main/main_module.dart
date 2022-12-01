@@ -10,7 +10,7 @@ class MainModule extends Module {
   final List<ModularRoute> routes = [
     ChildRoute(
       Modular.initialRoute, 
-      child: (context, args) => const HomeScreen(),
+      child: (context, args) => HomeScreen(user: args.data),
       transition: TransitionType.fadeIn
     )
   ];

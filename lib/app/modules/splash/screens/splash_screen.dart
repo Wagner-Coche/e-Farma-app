@@ -5,6 +5,7 @@ import '../../../shared/colors_default.dart';
 import '../controllers/splash_controller.dart';
 import '../components/title_splash_component.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:e_farma/app/services/auth_service_imp.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -21,7 +22,10 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
       setState(() => controller.value = .9);
-      Timer(const Duration(seconds: 3), () => Modular.to.navigate("/steps/"));
+      Future.delayed(const Duration(seconds: 3), () {
+        // AuthServiceImp authService = AuthServiceImp();
+        Modular.to.navigate("/steps/");
+      });
     });
   }
 

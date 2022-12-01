@@ -1,4 +1,5 @@
 import 'package:e_farma/app/modules/auth/login/controllers/login_controller.dart';
+import 'package:e_farma/app/services/auth_service_imp.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../shared/font_style.dart';
@@ -22,7 +23,11 @@ class QuestionAccountComponent extends StatelessWidget {
               title: "Entrar",
               onPressed: () {
                 if (formKey.currentState!.validate()) {
-                  controller.goToHomeScreen();
+                  AuthServiceImp().loginUser(
+                    email: controller.emailController.value.text, 
+                    password: controller.passwordController.value.text, 
+                    context: context
+                  );
                 }
               }
             ),

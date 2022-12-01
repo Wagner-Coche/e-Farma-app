@@ -8,4 +8,5 @@ class ColorsDefault {
   static Color greenLight = const Color(0xffAED131);
   static Color green = const Color(0xff70A83C);
   static Color grey = Colors.grey;
+  static Color red = Colors.red;
 }

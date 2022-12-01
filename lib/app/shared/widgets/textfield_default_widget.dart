@@ -30,14 +30,14 @@ class TextFieldDefaultWidget extends StatelessWidget {
         horizontal: MediaQuery.of(context).size.width * .06
       ),
       child: TextFormField(
-        cursorColor: ColorsDefault.greenDark,
+        cursorColor: ColorsDefault.grey,
         obscureText: obscureText,
         controller: controller,
         validator: validator,
         inputFormatters: textInputFormatter,
         keyboardType: textInputType,
         style: FontStyle.custom.copyWith(
-          color: ColorsDefault.greenDark,
+          color: ColorsDefault.grey,
         ),
         decoration: InputDecoration(
           hintText: hintText,

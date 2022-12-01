@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../shared/font_style.dart';
 import '../../shared/colors_default.dart';
 
 class StepTextButtonWidget extends StatelessWidget {
-  const StepTextButtonWidget({super.key, required this.text, this.onTap});
+  const StepTextButtonWidget({super.key, required this.text});
 
   final String text;
-  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class StepTextButtonWidget extends StatelessWidget {
       padding: const EdgeInsets.only(top: 15),
       width: MediaQuery.of(context).size.width,
       child: GestureDetector(
-        onTap: onTap, 
+        onTap: () => Modular.to.navigate("/auth/"), 
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[

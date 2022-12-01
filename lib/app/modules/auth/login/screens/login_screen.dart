@@ -1,3 +1,4 @@
+import 'package:e_farma/app/validation/textfields_validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -15,17 +16,18 @@ class LoginScreen extends StatefulWidget {
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  final controller = Modular.get<LoginController>();
+class _LoginScreenState extends State<LoginScreen> with TextFieldsValidation {
   final formKey = GlobalKey<FormState>();
+  final controller = Modular.get<LoginController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           child: Form(
             key: formKey,
             child: Column(
@@ -33,13 +35,18 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 const ImageCenterLoginComponent(),
-                const TextFieldDefaultWidget(
-                  hintText: "Seu nome",
+                TextFieldDefaultWidget(
+                  hintText: "Email",
                   obscureText: false,
+                  controller: controller.emailController,
+                  validator: emailValidator,
+                  textInputType: TextInputType.emailAddress,
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * .01),
                 TextFieldDefaultWidget(
                   hintText: "Password",
+                  controller: controller.passwordController,
+                  validator: passwordValidator,
                   obscureText: controller.passwordVisible,
                   suffixIcon: GestureDetector(
                     child: controller.passwordVisible ?
@@ -53,11 +60,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 const ResetPasswordTextComponent(),
-                QuestionAccountComponent(controller: controller)
+                QuestionAccountComponent(
+                  controller: controller,
+                  formKey: formKey,
+                )
               ],
             ),
-          ),  
-        ),
+          ),
+        ),  
       ),
     );
   }

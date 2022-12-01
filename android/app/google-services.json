@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "818451638359",
+    "project_id": "e-farma-9bab4",
+    "storage_bucket": "e-farma-9bab4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818451638359:android:ad322a04bb0d9816fc9b12",
+        "android_client_info": {
+          "package_name": "com.example.e_farma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818451638359-qnc4tls1f35e4rbqke19pakqhfpckc05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4gdiqZsw4IvRMFY41SikQa0FcMg-CKPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818451638359-qnc4tls1f35e4rbqke19pakqhfpckc05.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

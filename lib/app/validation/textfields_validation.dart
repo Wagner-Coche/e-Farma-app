@@ -20,7 +20,7 @@ mixin TextFieldsValidation {
 
   String? phoneNumberValidator(String? number) {
     if (number!.isEmpty) return "Campo obrigatório!";
-    if (number.length < 10) return "Número inválido";
+    if (number.length != 9) return "Número inválido";
     return null;
   }
 

@@ -1,19 +1,27 @@
-import 'package:e_farma/app/shared/colors_default.dart';
-import 'package:e_farma/app/shared/font_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:e_farma/app/shared/font_style.dart';
+import 'package:e_farma/app/shared/colors_default.dart';
 
 class TextFieldDefaultWidget extends StatelessWidget {
-  const TextFieldDefaultWidget({
+  TextFieldDefaultWidget({
     super.key, 
     required this.hintText, 
     required this.obscureText, 
-    this.suffixIcon
+    required this.controller,
+    required this.validator,
+    this.suffixIcon,
+    this.textInputFormatter,
+    this.textInputType
   });
 
   final String hintText;
   final bool obscureText;
   final Widget? suffixIcon;
-
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
+  final List<TextInputFormatter>? textInputFormatter;
+  final TextInputType? textInputType;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +32,10 @@ class TextFieldDefaultWidget extends StatelessWidget {
       child: TextFormField(
         cursorColor: ColorsDefault.greenDark,
         obscureText: obscureText,
+        controller: controller,
+        validator: validator,
+        inputFormatters: textInputFormatter,
+        keyboardType: textInputType,
         style: FontStyle.custom.copyWith(
           color: ColorsDefault.greenDark,
         ),

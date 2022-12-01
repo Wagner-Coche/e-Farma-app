@@ -6,9 +6,10 @@ import '../../../../shared/colors_default.dart';
 import '../../../../shared/widgets/button_start_widget.dart';
 
 class QuestionAccountComponent extends StatelessWidget {
-  const QuestionAccountComponent({super.key, required this.controller});
+  const QuestionAccountComponent({super.key, required this.controller, required this.formKey});
 
   final LoginController controller;
+  final GlobalKey<FormState> formKey;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,11 @@ class QuestionAccountComponent extends StatelessWidget {
           children: [
             ButtonStartWidget(
               title: "Entrar",
-              onPressed: () => controller.goToHomeScreen()
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  controller.goToHomeScreen();
+                }
+              }
             ),
             SizedBox(height: MediaQuery.of(context).size.height * .005),
             Row(

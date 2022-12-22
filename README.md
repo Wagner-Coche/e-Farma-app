@@ -1,3 +1,3 @@
-# e-Farma
+# e-Farma 💊
 
 ![Ilustração](assets/front.png)
